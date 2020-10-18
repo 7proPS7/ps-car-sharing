@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "Car sharing API", version = "1.0.0", description = "Simple Car sharing app"))
+@OpenAPIDefinition(info = @Info(title = "Car sharing API", version = "1.0.1", description = "Simple Car sharing app"))
 public class PsCarSharingApplication {
     public static void main(String[] args) {
         SpringApplication.run(PsCarSharingApplication.class, args);
