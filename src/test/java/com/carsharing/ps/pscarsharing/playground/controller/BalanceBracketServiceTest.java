@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BalanceBracketServiceTest {
+    private static final String HAS_UNBALANCED_BRACKETS_MESSAGE = "Has unbalanced brackets";
     private final BalanceBracketService balanceBracketService = new BalanceBracketService();
 
     @Test
@@ -27,7 +28,7 @@ class BalanceBracketServiceTest {
         BalanceBracketResponse response = balanceBracketService.balance(balancedBracketsInput);
         //then
         assertThat(response).isEqualTo(BalanceBracketResponse.UNBALANCE_BRACKET);
-        assertThat(response.getMessage()).isEqualTo("Has unbalanced brackets");
+        assertThat(response.getMessage()).isEqualTo(HAS_UNBALANCED_BRACKETS_MESSAGE);
     }
 
     @Test
@@ -37,7 +38,7 @@ class BalanceBracketServiceTest {
         BalanceBracketResponse response = balanceBracketService.balance(null);
         //then
         assertThat(response).isEqualTo(BalanceBracketResponse.UNBALANCE_BRACKET);
-        assertThat(response.getMessage()).isEqualTo("Has unbalanced brackets");
+        assertThat(response.getMessage()).isEqualTo(HAS_UNBALANCED_BRACKETS_MESSAGE);
     }
 
     @Test
@@ -47,6 +48,6 @@ class BalanceBracketServiceTest {
         BalanceBracketResponse response = balanceBracketService.balance("123456");
         //then
         assertThat(response).isEqualTo(BalanceBracketResponse.UNBALANCE_BRACKET);
-        assertThat(response.getMessage()).isEqualTo("Has unbalanced brackets");
+        assertThat(response.getMessage()).isEqualTo(HAS_UNBALANCED_BRACKETS_MESSAGE);
     }
 }
