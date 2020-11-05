@@ -1,4 +1,4 @@
-package com.carsharing.ps.pscarsharing.playground.controller;
+package com.carsharing.ps.pscarsharing.playground.service;
 
 import com.carsharing.ps.pscarsharing.playground.model.BalanceBracketResponse;
 import org.springframework.stereotype.Service;
