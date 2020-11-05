@@ -6,8 +6,8 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum BalanceBracketResponse {
-    BALANCE_BRACKET("Has balanced bracket"),
-    UNBALANCE_BRACKET("Has unbalanced bracket");
+    BALANCE_BRACKET("Has balanced brackets"),
+    UNBALANCE_BRACKET("Has unbalanced brackets");
 
     private final String message;
 }
