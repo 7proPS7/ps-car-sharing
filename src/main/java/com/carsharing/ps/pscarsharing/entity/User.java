@@ -9,9 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    @Schema(
-            description = "User name",
-            example = "pawelS"
-    )
+
+    @Schema(description = "Generated user Id", example = "1")
+    private Integer id;
+
+    @Schema(description = "User name", example = "pawelS")
     private String name;
 }

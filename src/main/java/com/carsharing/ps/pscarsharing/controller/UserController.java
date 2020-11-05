@@ -9,12 +9,14 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/user")
 @Tag(name = "user", description = "The user API")
 public class UserController {
@@ -29,8 +31,13 @@ public class UserController {
                     )
             }
     )
-    @GetMapping(produces = "application/json")
+    @GetMapping(name = "/all", produces = "application/json")
     public ResponseEntity<?> all() {
-        return ResponseEntity.ok(new User("someUserName"));
+        return ResponseEntity.ok(new User(1, "DWA"));
+    }
+
+    @GetMapping(name = "/not-all")
+    public ResponseEntity<?> notAll() {
+        return ResponseEntity.ok(new User(1, "Jeden"));
     }
 }
