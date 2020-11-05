@@ -21,18 +21,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/playground")
 @Tag(name = "playground", description = "the playground API")
 public class PlaygroundController {
+    public static final String QUOTATION_MARK = "'";
     private final BalanceBracketService balanceBracketService;
 
     @Operation(summary = "Balance brackets or unbalanced",
-            description = "Check if input has balanced or unbalanced brackets", tags = "user")
+            description = "Check if input has balanced or unbalanced brackets and print result", tags = "user")
     @ApiResponses(
             @ApiResponse(responseCode = "200", description = "Success",
                     content = @Content(array = @ArraySchema(
                             schema = @Schema(implementation = BalanceBracketResponse.class)))))
-    @PostMapping(name = "/balanceBrackets", produces = "application/json")
+    @PostMapping(name = "/balanceBrackets", produces = "text/plain")
     public ResponseEntity<?> balancedBrackets(
             @Parameter(description = "input as balanced '1+(1)' or unbalanced brackets ')(1+'")
             @RequestParam String input) {
-        return ResponseEntity.ok(balanceBracketService.balance(input));
+        return ResponseEntity.ok(QUOTATION_MARK + input + QUOTATION_MARK + " "
+                + balanceBracketService.balance(input).getMessage());
     }
 }
